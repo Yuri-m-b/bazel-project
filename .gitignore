@@ -1,0 +1,9 @@
+*.orig
+*.stamp
+*.idea
+
+.vscode/settings.json
+
+bazel-*
+MODULE.bazel.lock
+user.bazelrc
