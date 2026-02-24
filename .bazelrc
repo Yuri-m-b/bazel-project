@@ -1,3 +1,19 @@
 # .bazelrc
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod
+
+build:hermetiq --workspace_status_command=/home/yuri/Projects/bazel-project/hermetiq-credential-helper.sh
+build:hermetiq --generate_json_trace_profile
+build:hermetiq --experimental_profile_include_primary_output
+build:hermetiq --experimental_profile_include_target_label
+build:hermetiq --noslim_profile
+
+
+build:hermetiq --bes_instance_name=5ae2f430-87a4-4d71-898d-4b13fb12460c
+build:hermetiq --bes_backend=grpcs://bep.cloud-grpc.hermetiq.io
+build:hermetiq --bes_timeout=120s
+build:hermetiq --bes_results_url=https://dashboard.hermetiq.io/build/
+build:hermetiq --bes_upload_mode=wait_for_upload_complete 
+
+# Authentication (replace $(pwd) with actual path)
+build:hermetiq --credential_helper="bep.cloud-grpc.hermetiq.io=$(pwd)/hermetiq-credential-helper.sh"
